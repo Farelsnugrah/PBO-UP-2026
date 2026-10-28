@@ -1,4 +1,4 @@
-﻿from src.mahasiswa import Mahasiswa
+from src.mahasiswa import Mahasiswa
 
 
 def main() -> None:
