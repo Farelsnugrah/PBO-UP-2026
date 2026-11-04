@@ -2,6 +2,7 @@
 
 from src.model.alat_tani import AlatTani
 from src.model.penyewa import Penyewa
+from src.model.petugas import Petugas
 
 
 def main() -> None:
@@ -21,11 +22,19 @@ def main() -> None:
         "Traktor Roda Dua Kubota",
         150000,
     )
+    andi = Petugas(
+        "P001",
+        "Andi",
+        "Admin UPJA",
+        "081234567890",
+    )
 
     print(budi.identitas())
     print(budi.kontak())
     print(siti.kontak())
     print(traktor.keterangan())
+    print(andi.identitas())
+    print(andi.kontak())
 
 
 if __name__ == "__main__":
