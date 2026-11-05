@@ -1,7 +1,6 @@
 ﻿"""Tes untuk model AlatTani pada P03."""
 
 import pytest
-
 from src.model.alat_tani import AlatTani
 
 

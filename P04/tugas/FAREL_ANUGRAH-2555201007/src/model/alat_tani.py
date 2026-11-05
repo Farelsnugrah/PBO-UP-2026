@@ -10,6 +10,7 @@ class AlatTani:
     TARIF_MAKSIMUM: Final[int] = 5_000_000
     PERSEN_DENDA_HARIAN: Final[int] = 10
     PEMISAH_BARIS: Final[str] = ";"
+    JUMLAH_KOLOM_BARIS: Final[int] = 3
 
     _jumlah_terdaftar: int = 0
 
@@ -67,11 +68,11 @@ class AlatTani:
         return cls._jumlah_terdaftar
 
     @classmethod
-    def dari_baris_csv(cls, baris: str) -> "AlatTani":
+    def dari_baris_csv(cls, baris: str) -> AlatTani:
         """Membuat objek AlatTani dari baris CSV sederhana."""
         bagian = baris.split(cls.PEMISAH_BARIS)
 
-        if len(bagian) != 3:
+        if len(bagian) != cls.JUMLAH_KOLOM_BARIS:
             raise ValueError(
                 "baris CSV harus memiliki 3 bagian: kode;nama;tarif"
             )

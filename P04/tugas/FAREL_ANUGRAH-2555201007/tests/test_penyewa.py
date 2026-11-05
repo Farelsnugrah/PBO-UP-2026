@@ -1,7 +1,6 @@
 ﻿"""Tes untuk model Penyewa pada P03."""
 
 import pytest
-
 from src.model.alamat import Alamat
 from src.model.penyewa import Penyewa
 

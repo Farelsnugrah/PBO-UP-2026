@@ -1,10 +1,15 @@
 """Model domain penyewa alat pertanian."""
 
+from typing import Final
+
 from src.model.alamat import Alamat
 
 
 class Penyewa:
     """Identitas seorang petani yang menyewa alat dari UPJA."""
+
+    PANJANG_NIK: Final[int] = 16
+    PANJANG_MINIMUM_TELEPON: Final[int] = 10
 
     def __init__(
         self,
@@ -13,7 +18,7 @@ class Penyewa:
         alamat: Alamat,
         telepon: str = "-",
     ) -> None:
-        if len(nik) != 16 or not nik.isdigit():
+        if len(nik) != self.PANJANG_NIK or not nik.isdigit():
             raise ValueError(
                 f"NIK harus 16 digit angka, diterima '{nik}'"
             )
@@ -53,7 +58,7 @@ class Penyewa:
             self._telepon = "-"
             return
 
-        if not bersih.isdigit() or len(bersih) < 10:
+        if not bersih.isdigit() or len(bersih) < self.PANJANG_MINIMUM_TELEPON:
             raise ValueError(
                 f"nomor telepon tidak sah, diterima '{nilai}'"
             )

@@ -3,7 +3,6 @@
 from dataclasses import FrozenInstanceError
 
 import pytest
-
 from src.model.alamat import Alamat
 
 

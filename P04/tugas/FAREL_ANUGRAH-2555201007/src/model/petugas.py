@@ -1,10 +1,15 @@
 """Model domain petugas UPJA."""
 
+from typing import Final
+
 from src.model.kontak_petugas import KontakPetugas
 
 
 class Petugas:
     """Identitas petugas yang mengelola penyewaan alat pertanian."""
+
+    PANJANG_NIP: Final[int] = 18
+    PANJANG_MINIMUM_TELEPON: Final[int] = 10
 
     def __init__(
         self,
@@ -14,7 +19,7 @@ class Petugas:
         kontak: KontakPetugas,
         telepon: str,
     ) -> None:
-        if len(nip) != 18 or not nip.isdigit():
+        if len(nip) != self.PANJANG_NIP or not nip.isdigit():
             raise ValueError("NIP harus terdiri dari 18 digit angka")
 
         if not nama.strip():
@@ -59,7 +64,7 @@ class Petugas:
     def telepon(self, nilai: str) -> None:
         bersih = nilai.replace("-", "").replace(" ", "")
 
-        if not bersih.isdigit() or len(bersih) < 10:
+        if not bersih.isdigit() or len(bersih) < self.PANJANG_MINIMUM_TELEPON:
             raise ValueError("Nomor telepon petugas tidak valid")
 
         self._telepon = nilai

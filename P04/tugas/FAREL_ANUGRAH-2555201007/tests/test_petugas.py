@@ -1,7 +1,6 @@
 """Tes untuk model Petugas pada P03."""
 
 import pytest
-
 from src.model.kontak_petugas import KontakPetugas
 from src.model.petugas import Petugas
 
@@ -79,7 +78,7 @@ def test_telepon_bisa_diubah() -> None:
 def test_kontak_bersifat_beku() -> None:
     petugas = buat_petugas()
     with pytest.raises(AttributeError):
-        setattr(petugas.kontak, "email", "baru@upja.id")
+        petugas.kontak.email = "baru@upja.id"  # type: ignore[misc]
 
 
 def test_email_kontak_tidak_valid() -> None:

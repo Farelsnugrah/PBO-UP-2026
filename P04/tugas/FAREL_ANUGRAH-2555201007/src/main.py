@@ -2,8 +2,8 @@
 
 from src.model.alamat import Alamat
 from src.model.alat_tani import AlatTani
-from src.model.penyewa import Penyewa
 from src.model.kontak_petugas import KontakPetugas
+from src.model.penyewa import Penyewa
 from src.model.petugas import Petugas
 
 
